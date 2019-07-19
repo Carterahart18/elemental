@@ -1,0 +1,8 @@
+{
+  "name": "elemental",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "foo": "echo \"Hello world\""
+  }
+}
