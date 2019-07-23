@@ -4,7 +4,7 @@ const BASE_PATH = path.resolve(__dirname, '..');
 
 const config = {
   devtool: 'inline-source-map',
-  entry: path.resolve(BASE_PATH, './src/index.tsx'),
+  entry: `${BASE_PATH}/src/index.tsx`,
   mode: 'development',
   module: {
     rules: [
@@ -17,10 +17,14 @@ const config = {
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(BASE_PATH, './dist')
+    path: `${BASE_PATH}/dist`
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx', '.tsx', '.ts']
+    alias: {
+      src: `${BASE_PATH}/src`
+    },
+    extensions: ['*', '.js', '.jsx', '.tsx', '.ts'],
+    modules: ['node_modules']
   }
 };
 
