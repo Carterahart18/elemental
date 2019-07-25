@@ -2,9 +2,13 @@
 
 import React from 'react';
 
-import { Container, HollowCircle, Image } from './styles';
-
-import profilePic from 'src/assets/profile-pic.png';
+import {
+  Container,
+  HollowCircle,
+  Image,
+  LetterContainer,
+  Letter
+} from './styles';
 
 interface Props {
   name: string;
@@ -16,10 +20,18 @@ interface Props {
 }
 
 export function Avatar(props: Props): JSX.Element {
+  const letter = props.name ? props.name.charAt(0).toUpperCase() : 'X';
+
   return (
     <Container>
       <HollowCircle>
-        <Image src={profilePic} alt={''}/>
+        {props.src ? (
+          <Image src={props.src} alt={props.name} />
+        ) : (
+          <LetterContainer>
+            <Letter>{letter}</Letter>
+          </LetterContainer>
+        )}
       </HollowCircle>
     </Container>
   );
