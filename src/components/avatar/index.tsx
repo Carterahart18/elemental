@@ -27,8 +27,8 @@ export function Avatar(props: Props): JSX.Element {
   const letter = props.name ? props.name.charAt(0).toUpperCase() : 'X';
   const size: Size = toSize(props.size);
   return (
-    <Container>
-      <HollowCircle>
+    <Container size={size}>
+      <HollowCircle size={size}>
         {props.src ? (
           <Image src={props.src} alt={props.name} />
         ) : (

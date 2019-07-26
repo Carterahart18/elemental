@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
     "jsx": "react",
@@ -13,7 +14,11 @@
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "paths": {
+      "@src/*": ["@src/*"],
+      "@stories/*": ["@stories/*"]
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "webpack", "jest"],
