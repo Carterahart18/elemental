@@ -1,18 +1,23 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { text, boolean, number, withKnobs } from '@storybook/addon-knobs';
+import { text, boolean, radios, withKnobs } from '@storybook/addon-knobs';
+import background from 'stories/decorators/background';
 
 import Avatar from 'src/components/avatar';
 
 import profilePic from 'src/assets/profile-pic.png';
 
 storiesOf('Components', module)
-  .addDecorator(withKnobs)
+  .addDecorator(background())
   .add('Avatar', () => {
     const name = text('Name', 'Ash');
     const icon = text('Icon', '');
     const outline = boolean('Outline', false);
-    const size = text('Size', '');
+    const size = radios(
+      'Size',
+      { Default: '', Small: 'sm', Medium: 'md', Large: 'lg' },
+      ''
+    );
     const withPicture = boolean('Profile Picture', true);
     const verified = boolean('Verified', true);
 

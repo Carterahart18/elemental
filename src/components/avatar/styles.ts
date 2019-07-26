@@ -17,6 +17,7 @@ export const HollowCircle = styled('div')`
   width: 100%;
   height: 100%;
   border-radius: 50%;
+  border: 5px solid white;
   overflow: hidden;
 `;
 
@@ -53,3 +54,14 @@ export const Circle = styled('div')`
 `;
 
 export const Text = styled('span')``;
+
+export const BadgeContainer = styled('div')`
+  position: absolute;
+  right: -5px;
+  bottom: -5px;
+  width: 25%;
+  height: 25%;
+  border-radius: 50%;
+  border: 3px solid white;
+  background-color: white;
+`;

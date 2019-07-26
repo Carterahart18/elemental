@@ -2,7 +2,10 @@
 
 import React from 'react';
 
+import Verified from 'src/assets/verified.svg';
+
 import {
+  BadgeContainer,
   Container,
   HollowCircle,
   Image,
@@ -33,6 +36,11 @@ export function Avatar(props: Props): JSX.Element {
           </LetterContainer>
         )}
       </HollowCircle>
+      {props.verified && (
+        <BadgeContainer>
+          <Verified />
+        </BadgeContainer>
+      )}
     </Container>
   );
 }

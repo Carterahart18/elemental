@@ -14,7 +14,7 @@ const config = {
         loader: 'babel-loader'
       },
       {
-        test: /\.(png|jpe?g|svg)$/,
+        test: /\.(png|jpe?g)$/,
         exclude: /node_modules/,
         use: [
           {
@@ -25,6 +25,10 @@ const config = {
             }
           }
         ]
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-react-loader'
       },
       {
         test: /\.css$/,
@@ -41,7 +45,17 @@ const config = {
     alias: {
       src: `${BASE_PATH}/src`
     },
-    extensions: ['*', '.js', '.jsx', '.tsx', '.ts'],
+    extensions: [
+      '*',
+      '.js',
+      '.jsx',
+      '.tsx',
+      '.ts',
+      '.svg',
+      '.png',
+      '.jpg',
+      '.jpeg'
+    ],
     modules: ['node_modules']
   }
 };

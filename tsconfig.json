@@ -13,8 +13,9 @@
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "moduleResolution": "node",
+    "moduleResolution": "node"
   },
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "webpack", "jest"],
   "types": ["typePatches"]
 }
