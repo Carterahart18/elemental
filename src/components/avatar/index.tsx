@@ -1,6 +1,7 @@
 /* eslint-env browser */
 
 import React from 'react';
+import Size, { toSize } from 'src/util/sizeConstants';
 
 import Verified from 'src/assets/verified.svg';
 
@@ -24,7 +25,7 @@ interface Props {
 
 export function Avatar(props: Props): JSX.Element {
   const letter = props.name ? props.name.charAt(0).toUpperCase() : 'X';
-
+  const size: Size = toSize(props.size);
   return (
     <Container>
       <HollowCircle>
