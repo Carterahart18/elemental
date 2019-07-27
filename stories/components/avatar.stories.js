@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { text, boolean, radios, withKnobs } from '@storybook/addon-knobs';
+import { text, boolean, radios } from '@storybook/addon-knobs';
 import backdrop from 'stories/decorators/backdrop';
 
 import Avatar from 'src/components/avatar';

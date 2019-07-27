@@ -1,9 +1,9 @@
-import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
+
+import { silverChaliceGray, white } from 'src/emotion/colors';
 import Size from 'src/util/sizeConstants';
 
-// TODO: Convert colors and fonts into imports
 const sizeMap = {
   [Size.Small]: 25,
   [Size.Medium]: 40,
@@ -46,7 +46,7 @@ export const HollowCircle = styled('div')`
     if (props.outline) {
       const stroke = strokeMap[props.size || Size.Default];
       return css`
-        box-shadow: 0 0 0 ${stroke}px white;
+        box-shadow: 0 0 0 ${stroke}px ${white};
       `;
     }
     return css``;
@@ -64,11 +64,11 @@ export const LetterContainer = styled('div')`
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: grey;
+  background-color: ${silverChaliceGray};
 `;
 
 export const Letter = styled('span')`
-  color: white;
+  color: ${white};
   font-size: 72px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
@@ -81,7 +81,7 @@ export const BadgeContainer = styled('div')`
   width: 25%;
   height: 25%;
   border-radius: 50%;
-  background-color: white;
+  background-color: ${white};
   ${(props: Props) => {
     const badgeStrokeMap = {
       [Size.Small]: '1px',
@@ -90,7 +90,7 @@ export const BadgeContainer = styled('div')`
       [Size.Default]: '3px'
     };
     return css`
-      border: ${badgeStrokeMap[props.size || Size.Default]} solid white;
+      border: ${badgeStrokeMap[props.size || Size.Default]} solid ${white};
     `;
   }};
 `;

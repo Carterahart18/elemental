@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { alabasterWhite, altoGray } from 'src/emotion/colors';
 
 const backdrop = (
   width,
   height,
-  primaryColor = '#ddd',
-  secondaryColor = '#fafafa'
+  primaryColor = altoGray,
+  secondaryColor = alabasterWhite
 ) => (story: Function) => {
   const Container = styled('div')`
     display: flex;
@@ -27,7 +28,7 @@ const backdrop = (
       linear-gradient(-45deg, transparent 75%, ${primaryColor} 75%);
     background-size: 20px 20px;
     background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-    padding: 10px;
+    padding: 15px;
     width: 100%;
     min-height: 100%;
     border-radius: 5px;
