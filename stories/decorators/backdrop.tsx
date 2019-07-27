@@ -3,15 +3,15 @@ import styled from '@emotion/styled';
 import { alabasterWhite, altoGray } from 'src/emotion/colors';
 
 const backdrop = (
-  width,
-  height,
+  width = 'auto',
+  height = 'auto',
   primaryColor = altoGray,
   secondaryColor = alabasterWhite
 ) => (story: Function) => {
   const Container = styled('div')`
     display: flex;
-    width: ${width ? width + 'px' : '100%'};
-    height: ${height ? height + 'px' : '100%'};
+    width: ${width};
+    height: ${height};
     border-radius: 5px;
     background-color: ${secondaryColor};
     resize: both;

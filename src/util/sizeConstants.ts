@@ -5,7 +5,7 @@ enum Size {
   Default = ''
 }
 
-export const toSize = (str: String): Size => {
+export const toSize = (str: string | undefined): Size => {
   let size = Size.Default;
   switch (str) {
     case Size.Small:
