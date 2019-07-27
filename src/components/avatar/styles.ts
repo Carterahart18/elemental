@@ -27,10 +27,7 @@ export const Container = styled('div')`
   position: relative;
   ${(props: Props) => {
     const size = props.size || Size.Default;
-    const offset = props.outline ? 0 : strokeMap[size];
-
     return css`
-      margin: ${offset}px;
       width: ${sizeMap[size] - 0}px;
       height: ${sizeMap[size] - 0}px;
     `;
@@ -47,8 +44,9 @@ export const HollowCircle = styled('div')`
   overflow: hidden;
   ${(props: Props) => {
     if (props.outline) {
+      const stroke = strokeMap[props.size || Size.Default];
       return css`
-        border: ${strokeMap[props.size || Size.Default]}px solid white;
+        box-shadow: 0 0 0 ${stroke}px white;
       `;
     }
     return css``;
