@@ -24,13 +24,14 @@ interface Props {
 }
 
 export function Avatar(props: Props): JSX.Element {
-  const letter = props.name ? props.name.charAt(0).toUpperCase() : 'X';
+  const { name, outline } = props;
+  const letter = name ? name.charAt(0).toUpperCase() : 'X';
   const size: Size = toSize(props.size);
   return (
-    <Container size={size}>
-      <HollowCircle size={size}>
+    <Container size={size} outline={outline}>
+      <HollowCircle size={size} outline={outline}>
         {props.src ? (
-          <Image src={props.src} alt={props.name} />
+          <Image src={props.src} alt={name} />
         ) : (
           <LetterContainer>
             <Letter>{letter}</Letter>
@@ -38,7 +39,7 @@ export function Avatar(props: Props): JSX.Element {
         )}
       </HollowCircle>
       {props.verified && (
-        <BadgeContainer>
+        <BadgeContainer size={size} outline={outline}>
           <Verified />
         </BadgeContainer>
       )}

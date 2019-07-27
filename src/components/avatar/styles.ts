@@ -5,29 +5,34 @@ import Size from 'src/util/sizeConstants';
 
 // TODO: Convert colors and fonts into imports
 const sizeMap = {
-  [Size.Small]: '25px',
-  [Size.Medium]: '40px',
-  [Size.Large]: '72px',
-  [Size.Default]: '150px'
+  [Size.Small]: 25,
+  [Size.Medium]: 40,
+  [Size.Large]: 72,
+  [Size.Default]: 150
 };
 
-const sizeToBorderWidthMap = {
-  [Size.Small]: '2px',
-  [Size.Medium]: '3px',
-  [Size.Large]: '4px',
-  [Size.Default]: '5px'
+const strokeMap = {
+  [Size.Small]: 2,
+  [Size.Medium]: 3,
+  [Size.Large]: 4,
+  [Size.Default]: 5
 };
 
 interface Props {
-  size: Size;
+  size?: Size;
+  outline?: boolean;
 }
 
 export const Container = styled('div')`
   position: relative;
-  ${(props: Props) => css`
-    width: ${sizeMap[props.size || Size.Default]};
-    height: ${sizeMap[props.size || Size.Default]};
-  `}
+  ${(props: Props) => {
+    const size = props.size || Size.Default;
+    const offset = props.outline ? strokeMap[size] * 2 : 0;
+    return css`
+      width: ${sizeMap[size] - offset}px;
+      height: ${sizeMap[size] - offset}px;
+    `;
+  }}
 `;
 
 export const HollowCircle = styled('div')`
@@ -37,10 +42,15 @@ export const HollowCircle = styled('div')`
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  ${(props: Props) => css`
-    border: ${sizeToBorderWidthMap[props.size || Size.Default]} solid white;
-  `};
   overflow: hidden;
+  ${(props: Props) => {
+    if (props.outline) {
+      return css`
+        border: ${strokeMap[props.size || Size.Default]}px solid white;
+      `;
+    }
+    return css``;
+  }};
 `;
 
 export const Image = styled('img')`
@@ -79,11 +89,21 @@ export const Text = styled('span')``;
 
 export const BadgeContainer = styled('div')`
   position: absolute;
-  right: -5px;
-  bottom: -5px;
+  right: 0;
+  bottom: 0;
   width: 25%;
   height: 25%;
   border-radius: 50%;
-  border: 3px solid white;
   background-color: white;
+  ${(props: Props) => {
+    const strokeMap = {
+      [Size.Small]: '1px',
+      [Size.Medium]: '1px',
+      [Size.Large]: '2px',
+      [Size.Default]: '3px'
+    };
+    return css`
+      border: ${strokeMap[props.size || Size.Default]} solid white;
+    `;
+  }};
 `;
