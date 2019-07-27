@@ -27,10 +27,12 @@ export const Container = styled('div')`
   position: relative;
   ${(props: Props) => {
     const size = props.size || Size.Default;
-    const offset = props.outline ? strokeMap[size] * 2 : 0;
+    const offset = props.outline ? 0 : strokeMap[size];
+
     return css`
-      width: ${sizeMap[size] - offset}px;
-      height: ${sizeMap[size] - offset}px;
+      margin: ${offset}px;
+      width: ${sizeMap[size] - 0}px;
+      height: ${sizeMap[size] - 0}px;
     `;
   }}
 `;
@@ -74,19 +76,6 @@ export const Letter = styled('span')`
   font-weight: bold;
 `;
 
-interface CircleProps {
-  color: string;
-}
-
-export const Circle = styled('div')`
-  ${({ color }: CircleProps) =>
-    css`
-      color: ${color};
-    `}
-`;
-
-export const Text = styled('span')``;
-
 export const BadgeContainer = styled('div')`
   position: absolute;
   right: 0;
@@ -96,14 +85,14 @@ export const BadgeContainer = styled('div')`
   border-radius: 50%;
   background-color: white;
   ${(props: Props) => {
-    const strokeMap = {
+    const badgeStrokeMap = {
       [Size.Small]: '1px',
       [Size.Medium]: '1px',
       [Size.Large]: '2px',
       [Size.Default]: '3px'
     };
     return css`
-      border: ${strokeMap[props.size || Size.Default]} solid white;
+      border: ${badgeStrokeMap[props.size || Size.Default]} solid white;
     `;
   }};
 `;

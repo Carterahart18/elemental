@@ -1,14 +1,14 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, boolean, radios, withKnobs } from '@storybook/addon-knobs';
-import background from 'stories/decorators/background';
+import backdrop from 'stories/decorators/backdrop';
 
 import Avatar from 'src/components/avatar';
 
 import profilePic from 'src/assets/profile-pic.png';
 
 storiesOf('Components', module)
-  .addDecorator(background())
+  .addDecorator(backdrop(400, 400))
   .add('Avatar', () => {
     const name = text('Name', 'Ash');
     const icon = text('Icon', '');
