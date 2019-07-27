@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, boolean, radios } from '@storybook/addon-knobs';
-import styled from '@emotion/styled';
 import backdrop from 'stories/decorators/backdrop';
 
 import Avatar from 'src/components/avatar';
@@ -9,7 +8,7 @@ import Avatar from 'src/components/avatar';
 import profilePic from 'src/assets/profile-pic.png';
 
 storiesOf('Components', module)
-  .addDecorator(backdrop('400px', '400px'))
+  .addDecorator(backdrop())
   .add('Avatar', () => {
     const name = text('Name', 'Ash');
     const icon = text('Icon', '');

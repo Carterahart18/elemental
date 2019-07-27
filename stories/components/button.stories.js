@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { text, boolean, radios } from '@storybook/addon-knobs';

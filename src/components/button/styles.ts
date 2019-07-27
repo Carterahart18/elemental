@@ -32,26 +32,29 @@ export const Container = styled('div')`
     `};
 `;
 
-interface ButtonProps {
-  // inline?: boolean | undefined;
-}
+// interface ButtonProps {
+// inline?: boolean | undefined;
+// }
+// export const Button: StyledComponent<
+//   ButtonProps,
+//   React.HTMLProps<HTMLButtonElement>,
+//   {}
+// >
 
-export const Button: StyledComponent<
-  ButtonProps,
-  React.HTMLProps<HTMLButtonElement>,
-  {}
-> = styled('button')`
+export const Button = styled('button')`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  border-radius: 5px;
-  border: 1px solid ${galleryWhite};
+  border-radius: 8px;
+  border: 1px solid;
+  border-color: ${galleryWhite};
   padding: 10px 14px;
   background-color: ${galleryWhite};
   cursor: pointer;
 
   :hover {
+    border-color: ${mercuryWhite};
     background-color: ${mercuryWhite};
   }
 
@@ -61,6 +64,7 @@ export const Button: StyledComponent<
   }
 
   :active {
+    border-color: ${altoGray2};
     background-color: ${altoGray2};
   }
 `;
@@ -70,4 +74,5 @@ export const Text = styled('div')`
   min-height: 20px;
   color: ${mineShaftBlack};
   ${defaultFontBold('16px')}
+  user-select: none;
 `;
