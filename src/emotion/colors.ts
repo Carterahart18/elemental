@@ -13,6 +13,7 @@ export const black = '#000000';
 export const mineShaftBlack = '#333333';
 
 // Red
+export const monzaRed = '#E60023';
 
 // Orange
 

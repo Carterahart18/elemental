@@ -7,7 +7,7 @@ const backdrop = (
   height = 'auto',
   primaryColor = altoGray,
   secondaryColor = alabasterWhite
-) => (story: Function) => {
+) => story => {
   const Container = styled('div')`
     display: flex;
     width: ${width};

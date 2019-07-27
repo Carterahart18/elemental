@@ -1,18 +1,51 @@
-import React from 'react';
-import styled, { StyledComponent } from '@emotion/styled';
+import styled from '@emotion/styled';
 import { css } from '@emotion/core';
-
 import {
   altoGray2,
   buttonOutlineBlue,
   galleryWhite,
   mineShaftBlack,
+  monzaRed,
   mercuryWhite,
-  silverChaliceGray
+  white
 } from 'src/emotion/colors';
 import { defaultFontBold } from 'src/emotion/fonts';
-
 import Size from 'src/util/sizeConstants';
+
+const colorMap = {
+  blue: {
+    active: '',
+    hover: '',
+    primary: ''
+  },
+  gray: {
+    active: altoGray2,
+    hover: mercuryWhite,
+    primary: galleryWhite
+  },
+  red: {
+    active: '',
+    hover: '',
+    primary: monzaRed
+  },
+  transparent: {
+    active: 'transparent',
+    hover: 'transparent',
+    primary: 'transparent'
+  },
+  white: {
+    active: mercuryWhite,
+    hover: galleryWhite,
+    primary: white
+  }
+};
+
+const textColorMap = {
+  blue: '',
+  red: monzaRed,
+  darkGray: mineShaftBlack,
+  white: white
+};
 
 const sizeMap = {
   [Size.Small]: 25,
@@ -32,9 +65,11 @@ export const Container = styled('div')`
     `};
 `;
 
-// interface ButtonProps {
-// inline?: boolean | undefined;
-// }
+interface ButtonProps {
+  color: string;
+  textColor: string;
+}
+
 // export const Button: StyledComponent<
 //   ButtonProps,
 //   React.HTMLProps<HTMLButtonElement>,
@@ -48,31 +83,46 @@ export const Button = styled('button')`
   width: 100%;
   border-radius: 8px;
   border: 1px solid;
-  border-color: ${galleryWhite};
   padding: 10px 14px;
-  background-color: ${galleryWhite};
   cursor: pointer;
 
-  :hover {
-    border-color: ${mercuryWhite};
-    background-color: ${mercuryWhite};
-  }
+  ${(props: ButtonProps) => {
+    const isTransparent = props.color === 'transparent';
+    return css`
+      border-color: ${isTransparent
+        ? textColorMap[props.textColor]
+        : colorMap[props.color].primary};
+      background-color: ${colorMap[props.color].primary};
 
-  :focus {
-    outline: 0;
-    box-shadow: 0 0 0 4px ${buttonOutlineBlue};
-  }
+      :hover {
+        border-color: ${isTransparent
+          ? textColorMap[props.textColor]
+          : colorMap[props.color].hover};
+        background-color: ${colorMap[props.color].hover};
+      }
 
-  :active {
-    border-color: ${altoGray2};
-    background-color: ${altoGray2};
-  }
+      :focus {
+        outline: 0;
+        box-shadow: 0 0 0 4px ${buttonOutlineBlue};
+      }
+
+      :active {
+        border-color: ${isTransparent
+          ? textColorMap[props.textColor]
+          : colorMap[props.color].active};
+        background-color: ${colorMap[props.color].active};
+      }
+    `;
+  }};
 `;
 
+interface TextProps {
+  textColor: string;
+}
 export const Text = styled('div')`
   text-align: center;
   min-height: 20px;
-  color: ${mineShaftBlack};
+  color: ${(props: TextProps) => textColorMap[props.textColor]};
   ${defaultFontBold('16px')}
   user-select: none;
 `;

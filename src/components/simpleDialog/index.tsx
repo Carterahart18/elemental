@@ -21,15 +21,18 @@ export function Avatar(props: Props): JSX.Element {
       <ButtonRow>
         <ButtonContainer>
           <Button
+            color={'transparent'}
             text={props.dismissText}
+            textColor={'white'}
             onClick={() => props.dismissOnClick()}
           />
         </ButtonContainer>
         <ButtonContainer>
-        <Button
-          text={props.confirmText}
-          onClick={() => props.confirmOnClick()}
-        />
+          <Button
+            color={'white'}
+            text={props.confirmText}
+            onClick={() => props.confirmOnClick()}
+          />
         </ButtonContainer>
       </ButtonRow>
     </Dialog>

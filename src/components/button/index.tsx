@@ -18,17 +18,24 @@ interface Props {
 }
 
 export function Avatar({
+  color,
   inline = false,
   onClick,
   size: sizeProp,
   text = '',
+  textColor,
   type = 'button'
 }: Props): JSX.Element {
   const size = toSize(sizeProp);
   return (
     <Container inline={inline}>
-      <Button onClick={() => onClick()} type={type || 'button'}>
-        <Text>{text || ' '}</Text>
+      <Button
+        color={color || 'gray'}
+        textColor={textColor || 'darkGray'}
+        onClick={() => onClick()}
+        type={type || 'button'}
+      >
+        <Text textColor={textColor || 'darkGray'}>{text || ' '}</Text>
       </Button>
     </Container>
   );
