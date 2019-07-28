@@ -6,6 +6,19 @@
     "build": "webpack --config webpack/webpack.config.js",
     "storybook": "start-storybook -p 9009 -c .storybook"
   },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "@emotion/core": "^10.0.14",
+    "@emotion/styled": "^10.0.14",
+    "@storybook/addon-actions": "^5.1.9",
+    "@storybook/addon-centered": "^5.1.9",
+    "@storybook/addon-knobs": "^5.1.9",
+    "@storybook/addons": "^5.1.9",
+    "babel-plugin-emotion": "^10.0.14",
+    "eslint-plugin-react-hooks": "^1.6.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
@@ -32,17 +45,5 @@
     "webpack": "^4.36.1",
     "webpack-cli": "^3.3.6",
     "webpack-merge": "^4.2.1"
-  },
-  "dependencies": {
-    "@babel/polyfill": "^7.4.4",
-    "@emotion/core": "^10.0.14",
-    "@emotion/styled": "^10.0.14",
-    "@storybook/addon-actions": "^5.1.9",
-    "@storybook/addon-centered": "^5.1.9",
-    "@storybook/addon-knobs": "^5.1.9",
-    "@storybook/addons": "^5.1.9",
-    "babel-plugin-emotion": "^10.0.14",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
   }
 }
