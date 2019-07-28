@@ -1,22 +1,29 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import {
+  alabasterWhite,
   altoGray2,
   buttonOutlineBlue,
   galleryWhite,
+  havelockBlue,
+  havelockBlue2,
+  mercuryWhite,
   mineShaftBlack,
   monzaRed,
-  mercuryWhite,
-  white
+  monzaRed2,
+  monzaRed3,
+  transparent,
+  white,
+  marinerBlue
 } from 'src/emotion/colors';
 import { defaultFontBold } from 'src/emotion/fonts';
 import Size from 'src/util/sizeConstants';
 
 const colorMap = {
   blue: {
-    active: '',
-    hover: '',
-    primary: ''
+    active: marinerBlue,
+    hover: havelockBlue2,
+    primary: havelockBlue
   },
   gray: {
     active: altoGray2,
@@ -24,18 +31,18 @@ const colorMap = {
     primary: galleryWhite
   },
   red: {
-    active: '',
-    hover: '',
+    active: monzaRed3,
+    hover: monzaRed2,
     primary: monzaRed
   },
   transparent: {
-    active: 'transparent',
-    hover: 'transparent',
-    primary: 'transparent'
+    active: transparent,
+    hover: transparent,
+    primary: transparent
   },
   white: {
-    active: mercuryWhite,
-    hover: galleryWhite,
+    active: galleryWhite,
+    hover: alabasterWhite,
     primary: white
   }
 };

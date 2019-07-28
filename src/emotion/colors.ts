@@ -14,6 +14,8 @@ export const mineShaftBlack = '#333333';
 
 // Red
 export const monzaRed = '#E60023';
+export const monzaRed2 = '#CC001F';
+export const monzaRed3 = '#B0031D';
 
 // Orange
 
@@ -22,8 +24,14 @@ export const monzaRed = '#E60023';
 // Green
 
 // Blue
+export const havelockBlue = '#4A90E2';
+export const havelockBlue2 = '#4184D8';
+export const marinerBlue = '#286ACD';
 
 // Violet
+
+// Other
+export const transparent = 'transparent';
 
 // Custom
 export const buttonOutlineBlue = 'rgba(0, 132, 255, 0.5)';

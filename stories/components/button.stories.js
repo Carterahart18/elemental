@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { text, boolean, radios } from '@storybook/addon-knobs';
+import styled from '@emotion/styled';
 import backdrop from 'stories/decorators/backdrop';
 
 import Button from 'src/components/button';
@@ -9,35 +10,61 @@ import Button from 'src/components/button';
 storiesOf('Components', module)
   .addDecorator(backdrop('auto', 'auto'))
   .add('Button', () => {
-    const color = text('Color', '');
-    const disabled = boolean('Disabled', false);
-    const inline = boolean('Inline', false);
-    const name = text('Name', '');
-    const onClick = action('Foo');
-    const size = radios(
-      'Size',
-      { Default: '', Small: 'sm', Medium: 'md', Large: 'lg' },
-      ''
-    );
-    const textVal = text('Text', 'Click Me');
-    const textColor = text('Text Color', '');
-    const type = radios(
-      'Type',
-      { Default: '', Small: 'sm', Medium: 'md', Large: 'lg' },
-      'button'
-    );
+    const defaultProps = {
+      color: text('Color', ''),
+      disabled: boolean('Disabled', false),
+      inline: boolean('Inline', false),
+      name: text('Name', ''),
+      onClick: action('Foo'),
+      size: radios(
+        'Size',
+        { Default: '', Small: 'sm', Medium: 'md', Large: 'lg' },
+        ''
+      ),
+      text: text('Text', 'Click Me'),
+      textColor: text('Text Color', ''),
+      type: radios(
+        'Type',
+        { Default: '', Small: 'sm', Medium: 'md', Large: 'lg' },
+        'button'
+      )
+    };
+
+    const Container = styled('div')`
+      margin: 15px 0;
+    `;
 
     return (
-      <Button
-        color={color}
-        disabled={disabled}
-        inline={inline}
-        name={name}
-        onClick={onClick}
-        size={size}
-        text={textVal}
-        textColor={textColor}
-        type={type}
-      />
+      <div>
+        <Container>
+          <Button {...defaultProps} color={'white'} />
+        </Container>
+        <Container>
+          <Button {...defaultProps} />
+        </Container>
+        <Container>
+          <Button {...defaultProps} color={'red'} textColor={'white'} />
+        </Container>
+        <Container>
+          <Button {...defaultProps} color={'blue'} textColor={'white'} />
+        </Container>
+        <Container>
+          <Button
+            {...defaultProps}
+            color={'transparent'}
+            textColor={'darkGray'}
+          />
+        </Container>
+
+        <Container>
+          <Button
+            {...defaultProps}
+            color={'blue'}
+            inline
+            text={'Inline Button'}
+            textColor={'white'}
+          />
+        </Container>
+      </div>
     );
   });
